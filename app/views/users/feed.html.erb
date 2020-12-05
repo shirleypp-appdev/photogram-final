@@ -1,6 +1,4 @@
-<h1> <%=@the_user.username %> </h1>
-
-
+<h1> <%= @the_user.username%>  </h1>
 
 <dl>
 
@@ -18,7 +16,7 @@
 
 </dl>
 
-<ul>
+  <ul>
   <li>  <a href="/users/<%=@the_user.username %>"> Profile </a> </li>
   <li>  <a href="/photos"> Liked photos </a> </li>
   <li>  <a href="/users/<%=@the_user.username %>/feed"> Feed </a> </li>
@@ -26,9 +24,9 @@
 
   </ul>
 
-<h2> Own photos (<%= @the_user.photos.count%>) </h2>
+  <h2> Feed <%= @the_user.sent_follow_requests%> </h2>
 
-<table border="1">
+  <table border="1">
 
 <tr>
 
@@ -41,23 +39,6 @@
 
 </tr>
 
-
-<% @the_user.photos.each do |a_photo|%>
-
-<tr>
-
-<th> <img src="<%= a_photo.image%>"> </th>
-<th> <%= @the_user.username%> </th>
-<th> <%= a_photo.caption%> </th>
-<th> <%= time_ago_in_words(a_photo.created_at) %> ago </th>
-<th> <%= a_photo.likes.count%> </th>
-<th> Show details </th>
-
-</tr>
-
-
-
-<%end%>
 
 
 

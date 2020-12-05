@@ -20,4 +20,18 @@ render({:template =>  "users/show.html.erb"})
 end
 
 
+def feed
+
+    url_username=params.fetch("path_username")
+
+  matching_user=User.where({:username=> url_username})
+  @the_user=matching_user.at(0)
+
+  @list_of_feed=
+
+  render({:template =>  "users/feed.html.erb"})
+end 
+
+
+
 end

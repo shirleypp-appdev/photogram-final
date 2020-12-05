@@ -86,5 +86,13 @@ class UserAuthenticationController < ApplicationController
     
     redirect_to("/", { :notice => "User account cancelled" })
   end
- 
+
+  def show
+
+    @user = @current_user
+    @user.username = params.fetch("query_username")
+
+     render({ :template => "user_authentication/show.html.erb" })
+  end
+
 end
