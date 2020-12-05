@@ -1,0 +1,56 @@
+<h1> <%=@the_user.username %> </h1>
+
+
+
+<dl>
+
+<dt>  Private </dt>
+
+<dt> <%= @the_user.private%> </dt>
+
+<dt>  Followers </dt>
+
+<dt>  <%= @the_user.received_follow_requests.count%> </dt>
+
+<dt>  Following </dt>
+
+<dt>  <%= @the_user.sent_follow_requests.count%> </dt>
+
+</dl>
+
+<h2> Own photos <%= @the_user.photos.count%> </h2>
+
+<table border="1">
+
+<tr>
+
+<th> Image </th>
+<th> Owner </th>
+<th> Caption </th>
+<th> Posted </th>
+<th> Likes </th>
+<th>  </th>
+
+</tr>
+
+
+<% @the_user.photos.each do |a_photo|%>
+
+<tr>
+
+<th> <img src="<%= a_photo.image%>"> </th>
+<th> <%= @the_user.username%> </th>
+<th> <%= a_photo.caption%> </th>
+<th> Posted </th>
+<th> <%= a_photo.likes.count%> </th>
+<th> Show details </th>
+
+</tr>
+
+
+
+<%end%>
+
+
+
+</table>
